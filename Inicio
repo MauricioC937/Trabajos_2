@@ -1,0 +1,17 @@
+#Inicio
+#Método multiplicativo
+mm <- function(x0,a,m){
+  return( (a*x0) %% m)
+}
+mm(x0=79,a=153,m=97)
+# Simulación método multiplicativo
+mm_sim <- function(x0,a,m,nsim){
+  vec <- numeric(nsim+1)
+  vec[1] <- x0
+  for(k in 1:nsim){
+    vec[k+1] <- mm(vec[k],a,m)
+  }
+  vec <- (vec[-1])/m # retirar la observación x0
+  return(vec)
+}
+
